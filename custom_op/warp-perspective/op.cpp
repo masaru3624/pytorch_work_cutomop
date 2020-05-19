@@ -35,17 +35,17 @@ torch::Tensor another_op(torch::Tensor image, torch::Tensor warp) {
   return output.clone();
 }
 
-torch::conv2d_v3u(torch::Tensor input, torch::Tensor output, int in_ch,
-        int out_ch, int l
-) {
-  // cv::Mat image_mat(/*rows=*/image.size(0),
-  //                   /*cols=*/image.size(1),
-  //                   /*type=*/CV_32FC1,
-  //                   /*data=*/image.data<float>());
-  // cv::Mat warp_mat(/*rows=*/warp.size(0),
-  //                  /*cols=*/warp.size(1),
-  //                  /*type=*/CV_32FC1,
-  //                  /*data=*/warp.data<float>());
+// torch::conv2d_v3u(torch::Tensor input, torch::Tensor output, int in_ch,
+//         int out_ch, int l) {
+torch::Tensor conv2d_v3u(torch::Tensor image, torch::Tensor warp) {
+   cv::Mat image_mat(/*rows=*/image.size(0),
+                     /*cols=*/image.size(1),
+                     /*type=*/CV_32FC1,
+                     /*data=*/image.data<float>());
+   cv::Mat warp_mat(/*rows=*/warp.size(0),
+                    /*cols=*/warp.size(1),
+                    /*type=*/CV_32FC1,
+                    /*data=*/warp.data<float>());
 
   cv::Mat output_mat;
   cv::warpPerspective(image_mat, output_mat, warp_mat, /*dsize=*/{8, 8});
