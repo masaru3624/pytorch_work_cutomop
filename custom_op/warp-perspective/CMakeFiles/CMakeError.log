@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5eca1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5eca1.dir/build.make CMakeFiles/cmTC_5eca1.dir/build
+make[1]: Entering directory '/home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5eca1.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5eca1.dir/CheckSymbolExists.c.o   -c /home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5eca1
+/usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5eca1.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5eca1.dir/CheckSymbolExists.c.o  -o cmTC_5eca1 
+CMakeFiles/cmTC_5eca1.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_5eca1.dir/build.make:86: recipe for target 'cmTC_5eca1' failed
+make[1]: *** [cmTC_5eca1] Error 1
+make[1]: Leaving directory '/home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_5eca1/fast' failed
+make: *** [cmTC_5eca1/fast] Error 2
+
+File /home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_44ada/fast"
+/usr/bin/make -f CMakeFiles/cmTC_44ada.dir/build.make CMakeFiles/cmTC_44ada.dir/build
+make[1]: Entering directory '/home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_44ada.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_44ada.dir/CheckFunctionExists.c.o   -c /usr/local/lib/python3.6/dist-packages/cmake/data/share/cmake-3.13/Modules/CheckFunctionExists.c
+Linking C executable cmTC_44ada
+/usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44ada.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_44ada.dir/CheckFunctionExists.c.o  -o cmTC_44ada -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_44ada.dir/build.make:86: recipe for target 'cmTC_44ada' failed
+make[1]: *** [cmTC_44ada] Error 1
+make[1]: Leaving directory '/home/a5093235/work_hoge/pytorch_work/custom_op/warp-perspective/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_44ada/fast' failed
+make: *** [cmTC_44ada/fast] Error 2
+
+
